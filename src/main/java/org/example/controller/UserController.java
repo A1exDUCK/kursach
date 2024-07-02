@@ -22,7 +22,7 @@ public class UserController {
     public String postUser(Model model, User user) {
         String userId = userService.getUserId(user);
         if (userId != null) {
-            return "redirect:/recipes/" + userId;
+            return "redirect:/timetables/" + userId;
         }
         model.addAttribute("message", "User not found");
         return "login";

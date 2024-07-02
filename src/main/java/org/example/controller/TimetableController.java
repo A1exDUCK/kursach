@@ -1,7 +1,7 @@
 package org.example.controller;
 
-import org.example.model.Recipe;
-import org.example.service.RecipeService;
+import org.example.model.Timetable;
+import org.example.service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class RecipeController {
+public class TimetableController {
     @Autowired
-    private RecipeService recipeService;
+    private TimetableService timetableService;
 
     @GetMapping("/")
     private String getMain() {
         return "redirect:/login";
     }
 
-    @GetMapping("/recipes/{userId}")
-    private String getRecipes(Model model, @PathVariable("userId") String userId) {
-        List<Recipe> recipes = recipeService.findAllByUserId(userId);
+    @GetMapping("/timetables/{userId}")
+    private String getTimetables(Model model, @PathVariable("userId") String userId) {
+        List<Timetable> timetables = timetableService.findAllByUserId(userId);
         model.addAttribute("userId", userId);
-        model.addAttribute("recipes", recipes);
-        return "recipes";
+        model.addAttribute("timetables", timetables);
+        return "timetables";
     }
 
     @GetMapping("/add/{userId}")
@@ -36,14 +36,14 @@ public class RecipeController {
     }
 
     @PostMapping("/add")
-    private String postAdd(Recipe recipe) {
-        recipeService.addRecipe(recipe);
-        return "redirect:/recipes/" + recipe.getUserId();
+    private String postAdd(Timetable timetable) {
+        timetableService.addTimetable(timetable);
+        return "redirect:/timetables/" + timetable.getUserId();
     }
 
     @PostMapping("/delete/{userId}")
     private String postDelete(Model model, String id, @PathVariable("userId") String userId) {
-        recipeService.deleteById(id);
-        return getRecipes(model, userId);
+        timetableService.deleteById(id);
+        return getTimetables(model, userId);
     }
 }

@@ -5,17 +5,26 @@
     <title>Add</title>
 </head>
 <body>
-<h1>Add recipe</h1>
+<h1>Add timetable</h1>
 <form method="POST" th:action="@{/add}">
+    <label for="lectorName">ID Администратора: </label>
     <input type="text" name="userId" th:value="${userId}"/>
+
     <div>
-        <label for="name">Name: </label>
-        <input type="text" id="name" name="name"/>
+        <label for="lectorName">Имя Преподавателя </label>
+        <input type="text" id="lectorName" name="lectorName"/>
     </div>
+
     <div>
-        <label for="ingredients">Ingredients: </label>
-        <input type="text" id="ingredients" name="ingredients"/>
+        <label for="disciplineName">Название Дисциплины: </label>
+        <input type="text" id="disciplineName" name="disciplineName"/>
     </div>
+
+    <div>
+        <label for="classroom">Номер Аудитории: </label>
+        <input type="text" id="classroom" name="classroom"/>
+    </div>
+
     <button type="submit">Add</button>
 </form>
 </body>

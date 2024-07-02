@@ -18,7 +18,7 @@ public class GenerateUsers implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<User> users = List.of(
                 new User(UUID.randomUUID().toString(), "admin", "admin"),
-                new User(UUID.randomUUID().toString(), "qwe", "123")
+                new User(UUID.randomUUID().toString(), "user", "user")
         );
 
         for (User user : users) {

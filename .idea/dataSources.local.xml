@@ -4,7 +4,6 @@
     <data-source name="tables@127.0.0.1" uuid="26f1dc08-9f2a-46f8-82f8-5b20d9b18f05">
       <database-info product="Cassandra" version="4.1.5" jdbc-version="4.2" driver-name="Cassandra JDBC Driver" driver-version="1.4" dbms="CASSANDRA" exact-version="4.1.5" exact-driver-version="1.4">
         <identifier-quote-string>&quot;</identifier-quote-string>
-        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>

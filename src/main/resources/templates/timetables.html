@@ -2,24 +2,28 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Recipes</title>
+    <title>Timetables</title>
 </head>
 <body>
-<h1>Recipe list</h1>
+<h1>Timetable list</h1>
 <table border="separate">
     <tr>
         <th>№</th>
-        <th>Name</th>
-        <th>Ingredients</th>
+        <th>Имя Преподавателя</th>
+        <th>Название дисциплины</th>
+        <th>Кабинет</th>
         <th></th>
     </tr>
-    <tr th:each="recipe,iter : ${recipes}">
+    <tr th:each="timetable,iter : ${timetables}">
         <td th:text="${iter.index+1}"></td>
-        <td th:text="${recipe.name}"></td>
-        <td th:text="${recipe.ingredients}"></td>
+        <td th:text="${timetable.lectorName}"></td>
+        <td th:text="${timetable.disciplineName}"></td>
+        <td th:text="${timetable.classroom}"></td>
+
+
         <td>
             <form method="POST" th:action="@{/delete/{userId}(userId=${userId})}">
-                <input type="hidden" name="id" th:value="${recipe.id}"/>
+                <input type="hidden" name="id" th:value="${timetable.id}"/>
                 <button type="submit">Delete</button>
             </form>
         </td>
